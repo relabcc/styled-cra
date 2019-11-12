@@ -1,22 +1,24 @@
 {
   "name": "styled-cra",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@styled-system/theme-get": "^5.1.1",
-    "bowser": "^2.5.4",
+    "@styled-system/theme-get": "^5.1.2",
+    "bowser": "^2.7.0",
     "clean-tag": "2",
+    "libreact": "^2.13.2",
     "lodash": "^4.17.15",
     "open-color": "^1.7.0",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-icons": "^3.7.0",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-icons": "^3.8.0",
     "react-measure": "^2.3.0",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^3.2.0",
+    "react-sizeme": "^2.6.10",
     "sanitize.css": "^11.0.0",
-    "styled-components": "^4.3.2",
-    "styled-system": "^5.1.1"
+    "styled-components": "^4.4.1",
+    "styled-system": "^5.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
