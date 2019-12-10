@@ -8,7 +8,7 @@ import Circle from '../components/Circle'
 import Text from '../components/Text'
 import BackgroundImage from '../components/BackgroundImage'
 import Button from '../components/Button'
-import VerticalCenter from '../components/VerticalCenter'
+import FullpageVerticalCenter from '../components/FullpageVerticalCenter'
 import { responsive } from '../components/ThemeProvider/theme';
 
 import Counter from './Counter'
@@ -18,7 +18,7 @@ import withResponsive from '../hoc/withResponsive'
 
 const HomePage = ({ browser }) => (
   <Layout>
-    <VerticalCenter>
+    <FullpageVerticalCenter>
       <Container py={responsive(0, '2em')}>
         <Flex alignItems="center">
           <Text>
@@ -36,7 +36,7 @@ const HomePage = ({ browser }) => (
           <Button.secondary m="0.5em" disabled>不可點</Button.secondary>
         </Box>
       </Container>
-    </VerticalCenter>
+    </FullpageVerticalCenter>
   </Layout>
 )
 

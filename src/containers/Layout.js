@@ -9,7 +9,7 @@ import Header from './Header'
 const Layout = ({ children, noHeader }) => (
   <div>
     {!noHeader && <Header height={theme.headerHeight} siteTitle="Styled Create React App" />}
-    <Box height="100vh" pt={!noHeader && theme.headerHeight}>
+    <Box minHeight="100vh" pt={!noHeader && theme.headerHeight}>
       {children}
     </Box>
   </div>
