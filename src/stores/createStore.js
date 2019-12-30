@@ -3,10 +3,9 @@
  */
 
 import { createStore, compose } from 'redux';
-import { responsiveStoreEnhancer } from 'redux-responsive';
 import createReducer from './reducers';
 
-export default function configureStore(initialState = {}, history) {
+export default function configureStore(initialState = {}) {
   let composeEnhancers = compose;
 
   // If Redux Dev Tools and Saga Dev Tools Extensions are installed, enable them
@@ -20,7 +19,7 @@ export default function configureStore(initialState = {}, history) {
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
 
-  const enhancers = [responsiveStoreEnhancer];
+  const enhancers = [];
 
   const store = createStore(
     createReducer(),

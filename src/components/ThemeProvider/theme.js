@@ -9,6 +9,7 @@ const emToPx = (em) => `${em * 16}px`;
 export const breakpoints = [22, 36, 48, 62, 90, 120].map(emToPx);
 export const containerWidth = [22, 36, 46, 58].map(emToPx);
 export const responsive = (mobile, desktop) => [mobile, null, null, desktop];
+export const responsiveIndex = 3;
 
 const generateFade = (r, g, b) => range(10, 100, 10)
   .reduce((fade, opacity) => merge(fade, { [opacity]: `rgba(${[r, g, b, opacity / 100].join()})` }), {});
