@@ -11,14 +11,16 @@ import Button from '../components/Button'
 import FullpageVerticalCenter from '../components/FullpageVerticalCenter'
 import { responsive } from '../components/ThemeProvider/theme';
 
+import withResponsive from '../contexts/mediaQuery/withResponsive'
+
 import Layout from './Layout'
 
-const HomePage = () => (
+const HomePage = ({ isMobile  }) => (
   <Layout>
     <FullpageVerticalCenter>
       <Container py={responsive(0, '2em')}>
         <Flex alignItems="center">
-          <Text>
+          <Text color={isMobile ? 'red' : 'black'} fontSize={responsive('1em', '1.5em')}>
           Styled Components + Styled System 超方便
           </Text>
           <Circle width="2em" bg="blue" color="white" display="inline-block" mx="1em" verticalAlign="middle">
@@ -35,4 +37,4 @@ const HomePage = () => (
   </Layout>
 )
 
-export default HomePage
+export default withResponsive(HomePage)
