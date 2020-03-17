@@ -4,7 +4,8 @@ import mapValues from 'lodash/mapValues';
 
 import colors from 'open-color/open-color.json';
 
-const emToPx = (em) => `${em * 16}px`;
+const baseFontSize = 16
+const emToPx = (em) => `${em * baseFontSize}px`;
 
 export const breakpoints = [22, 36, 48, 62, 90, 120].map(emToPx);
 export const containerWidth = [22, 36, 46, 58].map(emToPx);
@@ -48,6 +49,7 @@ export default {
   breakpoints,
   containerWidth,
   font,
+  fontSize: `${baseFontSize}px`,
   headerHeight: '5em',
   responsive,
   zOrder: range(4).map((i) => 10 ** i),
