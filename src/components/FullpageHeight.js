@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import sizeMe from 'react-sizeme'
 import { withWindowSize } from 'libreact/modules/WindowSizeSensor';
 
@@ -11,7 +11,7 @@ const Fullpage = ({ noHeader, children, windowSize, ...props }) => {
   const [dims, setDims] = useState({})
   const canFull = windowSize.height > dims.height
 
-  return (
+  return useMemo(() => (
     <Box
       height={canFull ? '100vh' : 'auto'}
       mt={!noHeader && `-${theme.headerHeight}`}
@@ -22,7 +22,7 @@ const Fullpage = ({ noHeader, children, windowSize, ...props }) => {
         {children}
       </HeightAware>
     </Box>
-  );
+  ), [canFull, noHeader, children, props]);
 };
 
 export default withWindowSize(Fullpage);
