@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   fontSize,
   fontWeight,
@@ -10,11 +10,12 @@ import {
   display,
 } from 'styled-system';
 import tag from 'clean-tag';
+import { Link as RouterLink } from 'react-router-dom'
 
 import blacklist from './utils/blacklist';
 import { customColor } from './utils/getColor';
 
-const linkStyle = css`
+const NomalLink = styled(tag)`
   ${fontSize}
   ${space}
   ${color}
@@ -31,17 +32,20 @@ const linkStyle = css`
   }
 `;
 
-const NomalLink = styled(tag)`
-  ${linkStyle}
-`;
-
-
-const Link = ({ button, blacklist, ...props }) => {
+const Link = ({ button, to, ...props }) => {
+  if (to) {
+    return (
+      <NomalLink
+        is={RouterLink}
+        to={to}
+        { ...props }
+      />
+    )
+  }
   return (
     <NomalLink
       is="a"
       target="_blank"
-      blacklist={blacklist}
       { ...props }
     />
   );
@@ -52,6 +56,8 @@ Link.displayName = 'Link';
 Link.defaultProps = {
   blacklist,
   fontWeight: 'bold',
+  color: 'white',
+  hoverColor: 'white',
 };
 
 export default Link;

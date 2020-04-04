@@ -2,10 +2,11 @@
  * Create the store with dynamic reducers
  */
 
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import { routerMiddleware } from 'connected-react-router';
 import createReducer from './reducers';
 
-export default function configureStore(initialState = {}) {
+export default function configureStore(initialState = {}, history) {
   let composeEnhancers = compose;
 
   // If Redux Dev Tools and Saga Dev Tools Extensions are installed, enable them
@@ -19,7 +20,9 @@ export default function configureStore(initialState = {}) {
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
 
-  const enhancers = [];
+  const middlewares = [routerMiddleware(history)];
+
+  const enhancers = [applyMiddleware(...middlewares)];
 
   const store = createStore(
     createReducer(),

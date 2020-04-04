@@ -3,21 +3,32 @@ import 'react-app-polyfill/stable'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 
+import history from './utils/history';
 import creatStore from './stores/createStore';
 import ThemeProvider from './components/ThemeProvider'
+import { FirebaseProvider } from './services/firebase/index'
+import DataProvider from './services/firebase/DataProvider'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = creatStore();
+const initialState = {};
+const store = creatStore(initialState, history);
 
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider>
       <MediaProvider>
-        <App />
+        <FirebaseProvider dispatch={store.dispatch}>
+          <DataProvider>
+            <ConnectedRouter history={history}>
+              <App />
+            </ConnectedRouter>
+          </DataProvider>
+        </FirebaseProvider>
       </MediaProvider>
     </ThemeProvider>
   </Provider>

@@ -2,6 +2,7 @@ import React from 'react'
 import Box from '../components/Box';
 import Flex from '../components/Flex';
 import Text from '../components/Text';
+import Link from '../components/Link';
 
 const Header = ({ siteTitle, ...props }) => (
   <Flex
@@ -16,7 +17,9 @@ const Header = ({ siteTitle, ...props }) => (
   >
     <Box px="1em" flex={1}>
       <Text.h1 color="white">
-        {siteTitle}
+        <Link to="/">
+          {siteTitle}
+        </Link>
       </Text.h1>
     </Box>
   </Flex>
