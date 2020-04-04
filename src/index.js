@@ -9,7 +9,6 @@ import history from './utils/history';
 import creatStore from './stores/createStore';
 import ThemeProvider from './components/ThemeProvider'
 import { FirebaseProvider } from './services/firebase/index'
-import DataProvider from './services/firebase/DataProvider'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
 
 import App from './App';
@@ -20,17 +19,15 @@ const store = creatStore(initialState, history);
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider>
-      <MediaProvider>
-        <FirebaseProvider dispatch={store.dispatch}>
-          <DataProvider>
-            <ConnectedRouter history={history}>
-              <App />
-            </ConnectedRouter>
-          </DataProvider>
-        </FirebaseProvider>
-      </MediaProvider>
-    </ThemeProvider>
+    <FirebaseProvider dispatch={store.dispatch}>
+      <ThemeProvider>
+        <MediaProvider>
+          <ConnectedRouter history={history}>
+            <App />
+          </ConnectedRouter>
+        </MediaProvider>
+      </ThemeProvider>
+    </FirebaseProvider>
   </Provider>
 , document.getElementById('root'));
 
