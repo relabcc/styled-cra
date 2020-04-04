@@ -6,8 +6,8 @@ import Box from './Box';
 const Loading = (props) => (
   <Box {...props}>
     <Audio
-      color="currentColor"
-      size={36}
+      fill="currentColor"
+      width="100%"
     />
   </Box>
 );
