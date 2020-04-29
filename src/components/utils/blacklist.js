@@ -113,4 +113,5 @@ export default [
   'hoverBorder',
   'zOrder',
   'dispatch',
+  'isMobile',
 ];
