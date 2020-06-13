@@ -32,7 +32,7 @@ const HomePage = () => {
           <BackgroundImage my="2em" src="https://loremflickr.com/1920/1080" ratio={9 / 16} />
           <Box mx="-1em">
             <Button m="0.5em" rightIcon={FaHandPeace}>範例Button</Button>
-            <Button.secondary m="0.5em" disabled>不可點</Button.secondary>
+            <Button.Secondary m="0.5em" disabled>不可點</Button.Secondary>
           </Box>
         </Container>
       </FullpageVerticalCenter>

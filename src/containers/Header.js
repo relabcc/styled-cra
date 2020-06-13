@@ -15,9 +15,9 @@ const Header = ({ siteTitle, ...props }) => (
     {...props}
   >
     <Box px="1em" flex={1}>
-      <Text.h1 color="white">
+      <Text.H1 color="white">
         {siteTitle}
-      </Text.h1>
+      </Text.H1>
     </Box>
   </Flex>
 )

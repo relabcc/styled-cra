@@ -1,11 +1,11 @@
 {
   "name": "styled-cra",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@styled-system/should-forward-prop": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "bowser": "^2.9.0",
-    "clean-tag": "2",
     "libreact": "^2.13.2",
     "lodash": "^4.17.15",
     "open-color": "^1.7.0",
@@ -17,7 +17,7 @@
     "react-scripts": "^3.4.1",
     "react-sizeme": "^2.6.12",
     "sanitize.css": "^11.0.1",
-    "styled-components": "^5.1.0",
+    "styled-components": "^5.1.1",
     "styled-system": "^5.1.5"
   },
   "scripts": {

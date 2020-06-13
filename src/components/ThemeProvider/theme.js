@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 import range from 'lodash/range';
-import last from 'lodash/last';
+import get from 'lodash/get';
 import mapValues from 'lodash/mapValues';
 
 import colors from 'open-color/open-color.json';
@@ -13,20 +13,20 @@ const emToPx = (em) => `${em * baseFontSize}px`;
 export const breakpoints = [22, 36, 48, 62, 90, 120].map(emToPx);
 export const containerWidth = [22, 36, 46, 58].map(emToPx);
 export const responsiveIndex = [
-  3, // mobile
-  // 4, // laptop
+  [3, 'mobile'],
+  [4, 'tablet'],
 ]
 
-export const responsive = memorize((...args) => breakpoints.map((_, i) => {
-  if (args.length <= 1) return args[0]
-  let r = last(args)
-  let index = 0
-  while (r === last(args) && index < responsiveIndex.length) {
-    if (i < responsiveIndex[index]) r = args[index]
-    index += 1
-  }
-  return r
-}));
+const responsiveMap = breakpoints.map((_, i) => {
+  const id = responsiveIndex.findIndex(([ri]) => ri > i)
+  return id >= 0 ? id : responsiveIndex.length
+})
+
+export const responsive = memorize((...args) => {
+  const argsLen = args.length
+  if (argsLen <= 1) return args[0]
+  return breakpoints.map((_, i) => get(args, [responsiveMap[i]], null))
+});
 
 export const mobileOrDesktop = responsive
 
