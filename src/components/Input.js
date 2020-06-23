@@ -78,7 +78,10 @@ Input.propTypes = {
   ]),
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   onChange: PropTypes.func,
   onKeyUp: PropTypes.func,
   onBlur: PropTypes.func,

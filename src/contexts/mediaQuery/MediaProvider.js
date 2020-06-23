@@ -7,7 +7,7 @@ import { breakpoints } from '../../components/ThemeProvider/theme';
 
 const enhancer = breakpoints.reduce((composed, bp) => SubComp => ({ responsive, ...props }) => (
   <MediaSensor query={`(min-width: ${bp})`}>
-    {({ matches }) => createElement(composed(SubComp), { ...props, responsive: [...(responsive || []), matches] })}
+    {({ matches }) => createElement(composed(SubComp), { ...props, responsive: [matches, ...(responsive || [])] })}
   </MediaSensor>
 ), SubComp => SubComp)
 

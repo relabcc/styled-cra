@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import {
   fontSize,
@@ -9,10 +8,10 @@ import {
   letterSpacing,
   display,
 } from 'styled-system';
-import tag from 'clean-tag';
+import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import blacklist from './utils/blacklist';
 import { customColor } from './utils/getColor';
+import isToAs from './utils/isToAs'
 
 const linkStyle = css`
   ${fontSize}
@@ -31,27 +30,15 @@ const linkStyle = css`
   }
 `;
 
-const NomalLink = styled(tag)`
+const Link = isToAs(styled.a.withConfig({ shouldForwardProp })`
   ${linkStyle}
-`;
-
-
-const Link = ({ button, blacklist, ...props }) => {
-  return (
-    <NomalLink
-      is="a"
-      target="_blank"
-      blacklist={blacklist}
-      { ...props }
-    />
-  );
-};
+`);
 
 Link.displayName = 'Link';
 
 Link.defaultProps = {
-  blacklist,
   fontWeight: 'bold',
+  target: '_blank',
 };
 
 export default Link;

@@ -2,7 +2,8 @@ import { flexbox } from 'styled-system';
 import styled from 'styled-components';
 
 import Box from './Box';
-import blacklist from './utils/blacklist'
+
+import asForward from './utils/asForward'
 
 const Flex = styled(Box)`
   ${flexbox}
@@ -10,9 +11,8 @@ const Flex = styled(Box)`
 
 Flex.defaultProps = {
   display: 'flex',
-  blacklist,
 };
 
 Flex.displayName = 'Flex';
 
-export default Flex;
+export default asForward(Flex);
