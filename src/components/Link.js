@@ -9,13 +9,12 @@ import {
   letterSpacing,
   display,
 } from 'styled-system';
-import tag from 'clean-tag';
 import { Link as RouterLink } from 'react-router-dom'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import blacklist from './utils/blacklist';
 import { customColor } from './utils/getColor';
 
-const NomalLink = styled(tag)`
+const NomalLink = styled.a.withConfig({ shouldForwardProp })`
   ${fontSize}
   ${space}
   ${color}
@@ -36,7 +35,7 @@ const Link = ({ button, to, ...props }) => {
   if (to) {
     return (
       <NomalLink
-        is={RouterLink}
+        as={RouterLink}
         to={to}
         { ...props }
       />
@@ -44,17 +43,16 @@ const Link = ({ button, to, ...props }) => {
   }
   return (
     <NomalLink
-      is="a"
       target="_blank"
       { ...props }
     />
   );
 };
 
+
 Link.displayName = 'Link';
 
 Link.defaultProps = {
-  blacklist,
   fontWeight: 'bold',
   color: 'white',
   hoverColor: 'white',

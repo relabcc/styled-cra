@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { background } from 'styled-system';
 
 import Box from './Box';
+import asForward from './utils/asForward'
 
 const BackgroundImage = styled(Box)`
   ${background}
@@ -26,4 +27,4 @@ BackgroundImage.defaultProps = {
 
 BackgroundImage.displayName = 'BackgroundImage';
 
-export default BackgroundImage;
+export default asForward(BackgroundImage);
