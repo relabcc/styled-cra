@@ -6,7 +6,7 @@
     "@styled-system/should-forward-prop": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "bowser": "^2.9.0",
-    "libreact": "^2.13.2",
+    "libreact": "^2.13.3",
     "lodash": "^4.17.15",
     "open-color": "^1.7.0",
     "prop-types": "^15.7.2",
