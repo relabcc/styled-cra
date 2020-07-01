@@ -59,17 +59,18 @@ const Button = isToAs(({
   leftIcon,
   rightIcon,
   iconSpacing,
+  iconsSize,
   children,
   verticalAlign,
   ...props
 }) => (
   <ButtonBase {...props}>
     {leftIcon ? (
-      <Box as={leftIcon} mr={iconSpacing} verticalAlign={verticalAlign} />
+      <Box as={leftIcon} mr={iconSpacing} verticalAlign={verticalAlign} fontSize={iconsSize} />
     ) : null}
     <InButtonSpan verticalAlign={verticalAlign}>{children}</InButtonSpan>
     {rightIcon ? (
-      <Box as={rightIcon} ml={iconSpacing} verticalAlign={verticalAlign} />
+      <Box as={rightIcon} ml={iconSpacing} verticalAlign={verticalAlign} fontSize={iconsSize} />
     ) : null}
   </ButtonBase>
 ));
@@ -89,6 +90,7 @@ Button.defaultProps = {
   borderRadius: '0.25em',
   display: 'inline-block',
   verticalAlign: 'middle',
+  iconsSize: '1.25em',
 };
 
 Button.displayName = 'Button';
