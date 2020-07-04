@@ -10,7 +10,6 @@ import {
 } from 'styled-system';
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import blacklist from './utils/blacklist';
 import injectProps from './utils/injectProps';
 import isToAs from './utils/isToAs'
 
@@ -28,7 +27,6 @@ const Text = isToAs(styled.p.withConfig({ shouldForwardProp })`
 Text.defaultProps = {
   fontSize: '1em',
   // lineHeight: 1.5,
-  blacklist,
 };
 
 Text.Inline = (props) => <Text as="span" {...props} />;
