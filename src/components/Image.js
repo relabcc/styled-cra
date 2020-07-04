@@ -45,7 +45,7 @@ const Image = ({ src, alt, ...props }) => {
   }, [src])
   if (isArray(src)) {
     return (
-      <Img is="picture" {...props}>
+      <Img as="picture" {...props}>
         {pic.sources.map((s, i) => <source key={i} {...s} />)}
         <img src={pic.fallback} alt={alt} />
       </Img>
