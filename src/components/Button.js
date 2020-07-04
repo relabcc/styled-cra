@@ -128,7 +128,7 @@ Button.Outline = props => (
 );
 
 Button.Outline.Danger = props => (
-  <Button.danger
+  <Button.Danger
     border="2px solid"
     borderColor="danger"
     bg="transparent"
