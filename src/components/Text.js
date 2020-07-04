@@ -31,9 +31,9 @@ Text.defaultProps = {
   blacklist,
 };
 
-Text.inline = (props) => <Text as="span" {...props} />;
-Text.bold = (props) => <Text fontWeight="bold" {...props} />;
-Text.thin = (props) => <Text fontWeight="200" {...props} />;
+Text.Inline = (props) => <Text as="span" {...props} />;
+Text.Bold = (props) => <Text fontWeight="bold" {...props} />;
+Text.Thin = (props) => <Text fontWeight="200" {...props} />;
 
 range(1, 7).forEach((key) => {
   Text[`H${key}`] = (props) => (

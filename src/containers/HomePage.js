@@ -25,7 +25,7 @@ const HomePage = () => {
         <Container py={responsive(0, '2em')}>
           <Flex alignItems="center">
             <Text color={isMobile ? 'red' : 'black'} fontSize={responsive('1em', '1.5em')}>
-            Styled Components + Styled System 超方便
+              Styled Components + Styled System 超方便
             </Text>
             <Circle width="2em" bg="blue" color="white" display="inline-block" mx="1em" verticalAlign="middle">
               <FaThumbsUp />
