@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Box from './Box';
 
-const Circle = ({ children, border, borderColor, bg, is, ...props }) => (
+const Circle = ({ children, border, borderColor, bg, as, ...props }) => (
   <Box {...props}>
     <Box position="relative" pt="100%">
       <Box
@@ -17,7 +17,7 @@ const Circle = ({ children, border, borderColor, bg, is, ...props }) => (
         border={border}
         borderColor={borderColor}
         bg={bg}
-        is={is}
+        as={as}
       >
         <Box
           top="50%"
@@ -38,7 +38,7 @@ Circle.propTypes = {
   border: PropTypes.string,
   borderColor: PropTypes.string,
   bg: PropTypes.string,
-  is: PropTypes.oneOfType([
+  as: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
   ]),

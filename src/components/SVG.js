@@ -36,7 +36,7 @@ class SVG extends PureComponent {
     return isIE ? (
       <Box is="span" ref={measureRef} {...props}>
         <Box
-          is="svg"
+          as="svg"
           xmlns="http://www.w3.org/2000/svg"
           viewBox={viewBox}
           width={width}
@@ -48,7 +48,7 @@ class SVG extends PureComponent {
       </Box>
     ) : (
       <Box
-        is="svg"
+        as="svg"
         ref={measureRef}
         xmlns="http://www.w3.org/2000/svg"
         viewBox={viewBox}

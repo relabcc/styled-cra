@@ -44,6 +44,9 @@ const Box = isToAs(styled.div.withConfig({ shouldForwardProp })`
 
 Box.displayName = 'Box';
 
-Box.inline = (props) => <Box as="span" display="inline-block" verticalAlign="middle" {...props} />;
+Box.Inline = (props) => <Box as="span" display="inline-block" verticalAlign="middle" {...props} />;
+Box.Absolute = (props) => <Box position="absolute" {...props} />;
+Box.FullAbsolute = (props) => <Box.Absolute top="0" left="0" right="0" bottom="0" {...props} />;
+Box.Relative = (props) => <Box position="relative" {...props} />;
 
 export default Box;
