@@ -6,6 +6,7 @@
     "@styled-system/should-forward-prop": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "bowser": "^2.9.0",
+    "browser-lang": "^0.1.0",
     "libreact": "^2.13.3",
     "lodash": "^4.17.15",
     "open-color": "^1.7.0",
@@ -13,7 +14,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
+    "react-intl": "^5.3.1",
     "react-measure": "^2.3.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
     "react-sizeme": "^2.6.12",
     "sanitize.css": "^11.0.1",
@@ -24,6 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "extract-intl": "cross-env NODE_ENV=production node ./utils/extract-intl.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,5 +46,9 @@
       "last 1 safari version",
       "ie 11"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-react-intl": "^7.8.1",
+    "cross-env": "^7.0.2"
   }
 }

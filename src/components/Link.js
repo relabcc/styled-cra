@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import {
   fontSize,
   fontWeight,
@@ -8,12 +9,12 @@ import {
   letterSpacing,
   display,
 } from 'styled-system';
+import { Link as RouterLink } from 'react-router-dom'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
 import { customColor } from './utils/getColor';
-import isToAs from './utils/isToAs'
 
-const linkStyle = css`
+const NomalLink = styled.a.withConfig({ shouldForwardProp })`
   ${fontSize}
   ${space}
   ${color}
@@ -30,15 +31,29 @@ const linkStyle = css`
   }
 `;
 
-const Link = isToAs(styled.a.withConfig({ shouldForwardProp })`
-  ${linkStyle}
-`);
+const Link = ({ button, to, ...props }) => {
+  if (to) {
+    return (
+      <NomalLink
+        as={RouterLink}
+        to={to}
+        { ...props }
+      />
+    )
+  }
+  return (
+    <NomalLink
+      target="_blank"
+      { ...props }
+    />
+  );
+};
+
 
 Link.displayName = 'Link';
 
 Link.defaultProps = {
   fontWeight: 'bold',
-  target: '_blank',
 };
 
 export default Link;

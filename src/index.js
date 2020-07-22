@@ -2,6 +2,8 @@ import 'react-app-polyfill/ie11'
 import 'react-app-polyfill/stable'
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter } from 'react-router-dom';
+
 import ThemeProvider from './components/ThemeProvider'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
 
@@ -11,7 +13,9 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <ThemeProvider>
     <MediaProvider>
-      <App />
+      <HashRouter>
+        <App />
+      </HashRouter>
     </MediaProvider>
   </ThemeProvider>
 , document.getElementById('root'));
