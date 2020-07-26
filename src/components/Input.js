@@ -13,7 +13,7 @@ const TextInput = styled.input`
   width: 100%;
   padding: 0.25em;
   border: 1px solid ${themeGet('colors.gray')};
-  border-radius: 0;
+  border-radius: 0.25em;
   font-weight: bold;
   font-size: 1.25em;
   ${textAlign}
@@ -39,7 +39,7 @@ const Input = ({
   step,
   ...props
 }) => (
-  <Flex is="label" {...props}>
+  <Flex as="label" {...props}>
     {label && (
       <Box mr="1em" w={labelWidth}>
         <Text fontWeight="bold">{label}</Text>
