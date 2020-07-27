@@ -6,6 +6,7 @@ import AdminPage from './containers/Admin'
 import LoginPage from './containers/Admin/Login'
 import LogoutPage from './containers/Admin/Logout'
 import NotFoundPage from './containers/NotFoundPage'
+import Layout from './containers/Layout'
 
 import Redirect from './i18n/Redirect'
 import { userIsAuthenticatedRedir, userIsNotAuthenticatedRedir } from './services/firebase/authHelper'
@@ -19,26 +20,28 @@ const paths = [
 
 function App() {
   return (
-    <Switch>
-      {paths.map((p, i) => (
-        <Route
-          key={`redirect-${i}`}
-          exact
-          path={p.path}
-          component={Redirect}
-        />
-      ))}
-      {paths.map((p, i) => (
-        <Route
-          key={`locale-${i}`}
-          path={`/:locale${p.path}`}
-          component={p.component}
-          exact={p.exact}
-        />
-      ))}
-      <Route path="" component={NotFoundPage} />
-    </Switch>
-  )
+    <Layout>
+      <Switch>
+        {paths.map((p, i) => (
+          <Route
+            key={`redirect-${i}`}
+            exact
+            path={p.path}
+            component={Redirect}
+          />
+        ))}
+        {paths.map((p, i) => (
+          <Route
+            key={`locale-${i}`}
+            path={`/:locale${p.path}`}
+            component={p.component}
+            exact={p.exact}
+          />
+        ))}
+        <Route path="" component={NotFoundPage} />
+      </Switch>
+    </Layout>
+  );
 }
 
 
