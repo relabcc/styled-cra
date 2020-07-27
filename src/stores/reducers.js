@@ -5,7 +5,9 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router'
 
-import history from '../utils/history'
+import { firebaseReducer } from 'react-redux-firebase'
+import { firestoreReducer } from 'redux-firestore'
+import history from '../utils/history';
 
 /**
  * Creates the main reducer with the dynamically injected ones
@@ -13,6 +15,8 @@ import history from '../utils/history'
 export default function createReducer(injectedReducers = {}) {
   return combineReducers({
     router: connectRouter(history),
+    firebase: firebaseReducer,
+    firestore: firestoreReducer,
     ...injectedReducers,
   });
 }

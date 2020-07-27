@@ -8,6 +8,7 @@
     "bowser": "^2.9.0",
     "browser-lang": "^0.1.0",
     "connected-react-router": "^6.8.0",
+    "firebase": "7.15.4",
     "history": "^4.10.1",
     "hoist-non-react-statics": "^3.3.2",
     "immer": "^7.0.4",
@@ -22,13 +23,19 @@
     "react-intl": "^5.3.1",
     "react-measure": "^2.3.0",
     "react-redux": "^7.2.0",
+    "react-redux-firebase": "^3.6.0",
+    "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
     "react-sizeme": "^2.6.12",
     "redux": "^4.0.5",
+    "redux-auth-wrapper": "^3.0.0",
+    "redux-firestore": "^0.13.0",
+    "reselect": "^4.0.0",
     "sanitize.css": "^11.0.1",
     "styled-components": "^5.1.1",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "svg-loaders-react": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

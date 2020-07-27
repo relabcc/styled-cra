@@ -6,10 +6,11 @@ import { ConnectedRouter } from 'connected-react-router'
 
 import { Provider } from 'react-redux';
 
+import history from './utils/history';
 import creatStore from './stores/createStore';
 import ThemeProvider from './components/ThemeProvider'
+import { FirebaseProvider } from './services/firebase/index'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
-import history from './utils/history'
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -19,13 +20,15 @@ const store = creatStore(initialState, history);
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider>
-      <MediaProvider>
-        <ConnectedRouter history={history}>
-          <App />
-        </ConnectedRouter>
-      </MediaProvider>
-    </ThemeProvider>
+    <FirebaseProvider dispatch={store.dispatch}>
+      <ThemeProvider>
+        <MediaProvider>
+          <ConnectedRouter history={history}>
+            <App />
+          </ConnectedRouter>
+        </MediaProvider>
+      </ThemeProvider>
+    </FirebaseProvider>
   </Provider>
 , document.getElementById('root'));
 
