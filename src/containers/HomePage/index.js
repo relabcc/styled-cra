@@ -15,6 +15,7 @@ import { responsive } from '../../components/ThemeProvider/theme';
 import useResponsive from '../../contexts/mediaQuery/useResponsive'
 
 import Layout from '../Layout'
+import Counter from '../Counter'
 import messages from './messages'
 
 const HomePage = () => {
@@ -31,6 +32,7 @@ const HomePage = () => {
               <FaThumbsUp />
             </Circle>
           </Flex>
+          <Counter />
           <BackgroundImage my="2em" src="https://loremflickr.com/1920/1080" ratio={9 / 16} />
           <Box mx="-1em">
             <Button m="0.5em" rightIcon={FaHandPeace}><FormattedMessage {...messages.good} /></Button>
