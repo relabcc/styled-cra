@@ -6,6 +6,7 @@ import { HashRouter } from 'react-router-dom';
 
 import ThemeProvider from './components/ThemeProvider'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
+import LanguageProvider from './i18n/LanguageProvider'
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -14,7 +15,9 @@ ReactDOM.render(
   <ThemeProvider>
     <MediaProvider>
       <HashRouter>
-        <App />
+        <LanguageProvider>
+          <App />
+        </LanguageProvider>
       </HashRouter>
     </MediaProvider>
   </ThemeProvider>
