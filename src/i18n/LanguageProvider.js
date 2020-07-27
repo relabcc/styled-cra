@@ -23,14 +23,14 @@ import { defaultLocale, languages } from './locales'
 // }
 
 const LanguageProvider = ({ children }) => {
-  const { params } = useRouteMatch()
+  const { params, path } = useRouteMatch()
   const history = useHistory()
   const [locale, setLocale] = useState(params.locale || defaultLocale)
   const handleChangeLocale = useCallback((newLocale) => {
     setLocale(newLocale)
     localStorage.setItem('REACT_APP_LANG', newLocale)
-    history.push(`${window.location.pathname}${window.location.hash.replace(locale, newLocale)}`);
-  }, [locale, history])
+    history.push(`${path.replace(':locale', newLocale)}`);
+  }, [history, path])
 
   return (
     <LanguageContext.Provider value={Object.assign({ changeLocale: handleChangeLocale }, { locale, languages })}>
