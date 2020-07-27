@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import creatStore from './stores/createStore';
 import ThemeProvider from './components/ThemeProvider'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
+import LanguageProvider from './i18n/LanguageProvider'
 import history from './utils/history'
 
 import App from './App';
@@ -22,7 +23,9 @@ ReactDOM.render(
     <ThemeProvider>
       <MediaProvider>
         <ConnectedRouter history={history}>
-          <App />
+          <LanguageProvider>
+            <App />
+          </LanguageProvider>
         </ConnectedRouter>
       </MediaProvider>
     </ThemeProvider>
