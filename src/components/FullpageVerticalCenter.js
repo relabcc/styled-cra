@@ -22,7 +22,7 @@ const Fullpage = ({ noHeader, children, windowSize, ...props }) => {
         <Box
           position={canFull && 'absolute'}
           top={canFull ? '50%' : 0}
-          width={1}
+          width="100%"
           transform={canFull && 'translateY(-50%)'}
         >
           <HeightAware onSize={(dims) => {

@@ -8,7 +8,7 @@ import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import { createFirestoreInstance } from 'redux-firestore'
 
 import DataProvider from './DataProvider'
-import config from './config.json';
+import config from './config';
 
 // react-redux-firebase config
 const rrfConfig = {
