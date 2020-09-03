@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withContentRect } from 'react-measure'
-import isIE from './utils/isIE'
 
+import isIE from './utils/isIE'
 import Box from './Box';
 
 const parseViewbox = (vb) => {

@@ -1,12 +1,12 @@
-import { createGlobalStyle } from 'styled-components';
+import { css } from '@emotion/core'
 
-import theme from './theme';
-
-export default createGlobalStyle`
+export default css`
   body {
-    font-family: ${theme.font};
-    font-size: ${theme.fontSize};
     min-width: 100%;
     min-height: 100%;
+  }
+
+  img {
+    width: 100%;
   }
 `;

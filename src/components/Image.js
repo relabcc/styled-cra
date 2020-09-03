@@ -1,9 +1,7 @@
 import React, { useMemo } from 'react'
-import styled from 'styled-components';
-import { space, layout, opacity } from 'styled-system';
-import shouldForwardProp from '@styled-system/should-forward-prop'
 import isArray from 'lodash/isArray'
 import last from 'lodash/last'
+import { Image } from "@chakra-ui/core";
 
 const mimeTypes = {
   gif: 'image/gif',
@@ -17,17 +15,7 @@ const mimeTypes = {
 
 const base64Mime = /data:(\w+\/\w+);base64/
 
-const Img = styled.img.withConfig({ shouldForwardProp })`
-  ${space}
-  ${layout}
-  ${opacity}
-  img {
-    ${layout}
-    ${space}
-  }
-`;
-
-const Image = ({ src, alt, ...props }) => {
+const ReImage = ({ src, alt, ...props }) => {
   const pic = useMemo(() => {
     if (!isArray(src)) return null
     const sources = src.map((srcset) => {
@@ -45,22 +33,20 @@ const Image = ({ src, alt, ...props }) => {
   }, [src])
   if (isArray(src)) {
     return (
-      <Img as="picture" {...props}>
+      <Image as="picture" {...props}>
         {pic.sources.map((s, i) => <source key={i} {...s} />)}
         <img src={pic.fallback} alt={alt} />
-      </Img>
+      </Image>
     )
   }
 
-  return <Img src={src} alt={alt} {...props} />
+  return <Image src={src} alt={alt} {...props} />
 }
 
-Image.defaultProps = {
+ReImage.defaultProps = {
   width: 1,
 };
 
-Image.displayName = 'Image';
+ReImage.displayName = 'ReImage';
 
-Image.Block = props => <Image display="block" {...props} />
-
-export default Image;
+export default ReImage;

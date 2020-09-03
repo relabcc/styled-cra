@@ -22,17 +22,17 @@ const HomePage = () => {
       <FullpageVerticalCenter>
         <Container py={responsive(0, '2em')}>
           <Flex alignItems="center">
-            <Text color={isMobile ? 'red' : 'black'} fontSize={responsive('1em', '1.5em')}>
-              Styled Components + Styled System 超方便
+            <Text color={isMobile ? 'danger' : 'black'} fontSize={responsive('1em', '1.5em')}>
+              Re-lab UI Starter, Based On Chakra Ui
             </Text>
-            <Circle width="2em" bg="blue" color="white" display="inline-block" mx="1em" verticalAlign="middle">
+            <Circle width="2em" bg="primary" color="white" display="inline-block" mx="1em" verticalAlign="middle">
               <FaThumbsUp />
             </Circle>
           </Flex>
           <BackgroundImage my="2em" src="https://loremflickr.com/1920/1080" ratio={9 / 16} />
           <Box mx="-1em">
             <Button m="0.5em" rightIcon={FaHandPeace}>範例Button</Button>
-            <Button.Secondary m="0.5em" disabled>不可點</Button.Secondary>
+            <Button.Secondary m="0.5em" isDisabled>不可點</Button.Secondary>
           </Box>
         </Container>
       </FullpageVerticalCenter>
