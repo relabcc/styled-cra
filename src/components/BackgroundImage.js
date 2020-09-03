@@ -1,22 +1,10 @@
-import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
-import { background } from 'styled-system';
-
-import Box from './Box';
-import asForward from './utils/asForward'
+import { Box } from "@chakra-ui/core";
 
 const BackgroundImage = styled(Box)`
-  ${background}
-  background-image: url(${({ src }) => src});
-  background-repeat: no-repeat;
   ${(props) => props.height ? '' : `padding-top: ${props.ratio * 100}%;`}
 `;
-
-BackgroundImage.propTypes = {
-  src: PropTypes.string,
-  backgroundSize: PropTypes.string,
-  backgroundPosition: PropTypes.string,
-};
 
 BackgroundImage.defaultProps = {
   position: 'relative',
@@ -27,4 +15,6 @@ BackgroundImage.defaultProps = {
 
 BackgroundImage.displayName = 'BackgroundImage';
 
-export default asForward(BackgroundImage);
+export default ({ src, ...props }) => (
+  <BackgroundImage backgroundImage={`url(${src})`} {...props} />
+);

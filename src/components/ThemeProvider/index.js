@@ -1,16 +1,17 @@
 import React, { Fragment } from 'react';
-import { ThemeProvider } from 'styled-components';
-import 'sanitize.css';
+import { ThemeProvider, CSSReset } from '@chakra-ui/core'
+import { Global } from '@emotion/core'
 
-import GlobalStyles from './global-styles';
+import globalStyles from './global-styles';
 
 import theme from './theme';
 
 export default ({ children }) => (
   <ThemeProvider theme={theme}>
     <Fragment>
+      <CSSReset />
+      <Global styles={globalStyles} />
       {children}
-      <GlobalStyles />
     </Fragment>
   </ThemeProvider>
 );
