@@ -44,7 +44,7 @@ const ReImage = ({ src, alt, ...props }) => {
 }
 
 ReImage.defaultProps = {
-  width: 1,
+  width: '100%',
 };
 
 ReImage.displayName = 'ReImage';
