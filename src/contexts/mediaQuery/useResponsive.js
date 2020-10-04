@@ -4,11 +4,13 @@ import isArray from 'lodash/isArray'
 import MediaContext from './mediaContext'
 
 import getResponsiveHelper from './getResponsiveHelper'
+import { responsive } from '../../components/ThemeProvider/theme';
 
 export default () => {
   const q = useContext(MediaContext)
   return {
     ...getResponsiveHelper(q),
+    responsive,
     getCurrentValue: useCallback((resArr) => {
       if (!isArray(resArr)) {
         return resArr
