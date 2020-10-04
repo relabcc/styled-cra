@@ -1,5 +1,5 @@
-import { useContext } from 'react'
-import last from 'lodash/last'
+import { useContext, useCallback } from 'react'
+import isArray from 'lodash/isArray'
 
 import MediaContext from './mediaContext'
 
@@ -9,9 +9,16 @@ export default () => {
   const q = useContext(MediaContext)
   return {
     ...getResponsiveHelper(q),
-    getCurrentValue: (resArr) => {
-      const ff = q.findIndex(v => !v)
-      return ff === -1 ? last(resArr) : resArr[ff]
-    },
+    getCurrentValue: useCallback((resArr) => {
+      if (!isArray(resArr)) {
+        return resArr
+      }
+      let ff = q.findIndex(v => !v)
+      if (ff === -1) ff = resArr.length - 1
+      while (!resArr[ff]) {
+        ff -= 1
+      }
+      return resArr[ff]
+    }, [q]),
   }
 }
