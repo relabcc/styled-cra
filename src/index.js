@@ -16,11 +16,11 @@ ReactDOM.render(
   <ThemeProvider>
     <MediaProvider>
       <HashRouter>
-        <HeaderProvider>
-          <LanguageProvider>
+        <LanguageProvider>
+          <HeaderProvider>
             <App />
-          </LanguageProvider>
-        </HeaderProvider>
+          </HeaderProvider>
+        </LanguageProvider>
       </HashRouter>
     </MediaProvider>
   </ThemeProvider>
