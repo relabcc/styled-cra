@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { withContentRect } from 'react-measure'
-import isIE from './utils/isIE'
 
+import isIE from './utils/isIE'
 import Box from './Box';
 
 const parseViewbox = (vb) => {
@@ -14,50 +14,42 @@ const parseViewbox = (vb) => {
   }
 };
 
-class SVG extends PureComponent {
-  constructor(props) {
-    super(props)
-    this.ratio = parseViewbox(props.viewBox)
-  }
-
-  componentDidMount() {
-    this.props.measure();
-  }
-
-  render() {
-    const {
-      viewBox,
-      children,
-      measure,
-      measureRef,
-      contentRect: { bounds: { width } },
-      ...props
-    } = this.props;
-    return isIE ? (
-      <Box is="span" ref={measureRef} {...props}>
-        <Box
-          as="svg"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox={viewBox}
-          width={width}
-          height={this.ratio * width}
-          verticalAlign="auto"
-        >
-          {children}
-        </Box>
-      </Box>
-    ) : (
+const SVG = ({
+  viewBox,
+  children,
+  measure,
+  measureRef,
+  contentRect: { bounds: { width } },
+  ...props
+}) => {
+  const ratio = useMemo(() =>  parseViewbox(viewBox), [])
+  useEffect(() => {
+    measure()
+  }, [])
+  return isIE ? (
+    <Box is="span" ref={measureRef} {...props}>
       <Box
         as="svg"
-        ref={measureRef}
         xmlns="http://www.w3.org/2000/svg"
         viewBox={viewBox}
-        {...props}
+        width={width}
+        height={ratio * width}
+        verticalAlign="auto"
       >
         {children}
       </Box>
-    );
-  }
+    </Box>
+  ) : (
+    <Box
+      as="svg"
+      ref={measureRef}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={viewBox}
+      {...props}
+    >
+      {children}
+    </Box>
+  );
 }
 
 SVG.propTypes = {

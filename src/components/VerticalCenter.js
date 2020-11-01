@@ -53,7 +53,7 @@ class VerticalCenter extends PureComponent {
         <Box
           position={shouldCenter && 'absolute'}
           top={shouldCenter ? '50%' : 0}
-          width={1}
+          width="100%"
           transform={shouldCenter && 'translateY(-50%)'}
           ref={measureRef}
         >

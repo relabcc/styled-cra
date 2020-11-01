@@ -11,6 +11,7 @@ import ThemeProvider from './components/ThemeProvider'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
 import LanguageProvider from './i18n/LanguageProvider'
 import history from './utils/history'
+import HeaderProvider from './contexts/header/Provider'
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -24,7 +25,9 @@ ReactDOM.render(
       <MediaProvider>
         <ConnectedRouter history={history}>
           <LanguageProvider>
-            <App />
+            <HeaderProvider>
+              <App />
+            </HeaderProvider>
           </LanguageProvider>
         </ConnectedRouter>
       </MediaProvider>

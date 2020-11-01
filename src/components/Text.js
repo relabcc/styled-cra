@@ -1,48 +1,23 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { forwardRef } from 'react';
+import { Text } from "@chakra-ui/core";
 import range from 'lodash/range';
-import {
-  typography,
-  space,
-  color,
-  display,
-  position,
-} from 'styled-system';
-import shouldForwardProp from '@styled-system/should-forward-prop'
+import styled from '@emotion/styled'
 
-import injectProps from './utils/injectProps';
-import isToAs from './utils/isToAs'
+const ReText = styled(Text)``
 
-const Text = isToAs(styled.p.withConfig({ shouldForwardProp })`
-  margin-top: 0;
-  margin-bottom: 0;
-  ${typography}
-  ${display}
-  ${space}
-  ${color}
-  ${position}
-  ${injectProps('textTransform')}
-`);
-
-Text.defaultProps = {
-  fontSize: '1em',
-  // lineHeight: 1.5,
-};
-
-Text.Inline = (props) => <Text as="span" {...props} />;
-Text.Bold = (props) => <Text fontWeight="bold" {...props} />;
-Text.Thin = (props) => <Text fontWeight="200" {...props} />;
+ReText.Inline = forwardRef((props, ref) => <ReText as="span" {...props} ref={ref} />);
+ReText.Bold = forwardRef((props, ref) => <ReText fontWeight="bold" {...props} ref={ref} />);
+ReText.Thin = forwardRef((props, ref) => <ReText fontWeight="200" {...props} ref={ref} />);
 
 range(1, 7).forEach((key) => {
-  Text[`H${key}`] = (props) => (
-    <Text
+  ReText[`H${key}`] = forwardRef((props, ref) => (
+    <ReText
       as={`h${key}`}
-      fontSize={`${1 + ((6 - key) * 0.125)}em`}
+      fontSize={`${5 - key}xl`}
       {...props}
+      ref={ref}
     />
-  );
+  ));
 });
 
-Text.displayName = 'Text';
-
-export default Text;
+export default Text
