@@ -1,19 +1,23 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { Heading } from '@chakra-ui/core'
 import range from 'lodash/range'
+import styled from '@emotion/styled'
 
-Heading.defaultProps = {
+const ReHeading = styled(Heading)``
+
+ReHeading.defaultProps = {
   // fontWeight: 400,
 }
 
 range(1, 7).forEach((key) => {
-  Heading[`H${key}`] = (props) => (
-    <Heading
+  ReHeading[`H${key}`] = forwardRef((props, ref) => (
+    <ReHeading
       as={`h${key}`}
       fontSize={`${5 - key}xl`}
       {...props}
+      ref={ref}
     />
-  );
+  ));
 });
 
-export default Heading
+export default ReHeading

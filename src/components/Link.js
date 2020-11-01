@@ -1,27 +1,27 @@
-import React from 'react';
-
+import React, { forwardRef } from 'react';
 import { Link as UiLink } from "@chakra-ui/core";
 import { Link as RouterLink } from 'react-router-dom'
 
-const Link = ({ button, to, ...props }) => {
+const Link = forwardRef(({ button, to, ...props }, ref) => {
   if (to) {
     return (
       <UiLink
         as={RouterLink}
         to={to}
-        { ...props }
+        {...props}
+        ref={ref}
       />
     )
   }
   return (
     <UiLink
       target="_blank"
-      { ...props }
+      {...props}
+      ref={ref}
     />
   );
-};
-
+});
 
 Link.displayName = 'Link';
 
-export default Link
+export default styled(Link)``

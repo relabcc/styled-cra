@@ -1,7 +1,9 @@
-import React from 'react'
-
+import React, { forwardRef } from 'react'
 import { Flex } from "@chakra-ui/core";
+import styled from '@emotion/styled'
 
-Flex.Vertical = props => <Flex direction="column" {...props} />
+const ReFlex = styled(Flex)``
 
-export default Flex
+ReFlex.Vertical = forwardRef((props, ref) => <Flex direction="column" {...props} ref={ref} />)
+
+export default ReFlex

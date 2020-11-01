@@ -7,9 +7,11 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import history from './utils/history';
 import creatStore from './stores/createStore';
+
 import ThemeProvider from './components/ThemeProvider'
 import { FirebaseProvider } from './services/firebase/index'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
+import HeaderProvider from './contexts/header/Provider'
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -23,7 +25,10 @@ ReactDOM.render(
       <ThemeProvider>
         <MediaProvider>
           <ConnectedRouter history={history}>
-            <App />
+            <HeaderProvider>
+
+              <App />
+            </HeaderProvider>
           </ConnectedRouter>
         </MediaProvider>
       </ThemeProvider>
