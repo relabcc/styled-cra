@@ -1,5 +1,5 @@
 {
   "HomePage.buttons.bad": "不可點",
-  "HomePage.buttons.good": "範例Button",
+  "HomePage.buttons.admin": "後台",
   "HomePage.header": "Styled Components + Styled System 超方便！"
 }

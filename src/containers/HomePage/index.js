@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaThumbsUp, FaHandPeace } from 'react-icons/fa';
+import { FaThumbsUp, FaLock } from 'react-icons/fa';
 import { FormattedMessage } from 'react-intl'
 
 import Container from '../../components/Container'
@@ -33,7 +33,7 @@ const HomePage = () => {
         <Counter />
         <BackgroundImage my="2em" src="https://loremflickr.com/1920/1080" ratio={9 / 16} />
         <Box mx="-1em">
-          <Button m="0.5em" rightIcon={FaHandPeace}><FormattedMessage {...messages.good} /></Button>
+          <Button m="0.5em" to="/admin" rightIcon={FaLock}><FormattedMessage {...messages.admin} /></Button>
           <Button.Secondary m="0.5em" disabled><FormattedMessage {...messages.bad} /></Button.Secondary>
         </Box>
       </Container>

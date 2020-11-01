@@ -12,6 +12,7 @@ import ThemeProvider from './components/ThemeProvider'
 import { FirebaseProvider } from './services/firebase/index'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
 import LanguageProvider from './i18n/LanguageProvider'
+import HeaderProvider from './contexts/header/Provider'
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -26,7 +27,9 @@ ReactDOM.render(
         <MediaProvider>
           <ConnectedRouter history={history}>
             <LanguageProvider>
-              <App />
+              <HeaderProvider>
+                <App />
+              </HeaderProvider>
             </LanguageProvider>
           </ConnectedRouter>
         </MediaProvider>

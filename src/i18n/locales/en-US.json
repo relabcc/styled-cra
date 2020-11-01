@@ -1,5 +1,5 @@
 {
   "HomePage.buttons.bad": "Bad Button",
-  "HomePage.buttons.good": "Good Button",
+  "HomePage.buttons.admin": "Admin",
   "HomePage.header": "Styled Components + Styled System is cool!"
 }

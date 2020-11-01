@@ -12,9 +12,9 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'Styled Components + Styled System 超方便！',
   },
-  good: {
-    id: `${scope}.buttons.good`,
-    defaultMessage: '範例Button',
+  admin: {
+    id: `${scope}.buttons.admin`,
+    defaultMessage: '後台',
   },
   bad: {
     id: `${scope}.buttons.bad`,
