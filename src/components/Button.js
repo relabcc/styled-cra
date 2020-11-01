@@ -3,8 +3,8 @@ import { Button } from "@chakra-ui/core";
 
 import Link from './Link'
 
-const ReButton = ({ href, ...props }) => {
-  if (href) return <Button as={p => <Link {...p} href={href} />} {...props} />
+const ReButton = ({ href, to, ...props }) => {
+  if (href || to) return <Button as={p => <Link {...p} href={href} to={to} />} {...props} />
   return <Button {...props} />
 }
 

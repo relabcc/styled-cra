@@ -7,7 +7,6 @@ import Flex from '../components/Flex'
 import Circle from '../components/Circle'
 import Text from '../components/Text'
 import BackgroundImage from '../components/BackgroundImage'
-import Link from '../components/Link'
 import Button from '../components/Button'
 import FullpageVerticalCenter from '../components/FullpageVerticalCenter'
 import { responsive } from '../components/ThemeProvider/theme';
@@ -32,7 +31,7 @@ const HomePage = () => {
         <Counter />
         <BackgroundImage my="2em" src="https://loremflickr.com/1920/1080" ratio={9 / 16} />
         <Box mx="-1em">
-          <Button is={Link} m="0.5em" to="/admin" rightIcon={FaLock}>Admin</Button>
+          <Button m="0.5em" to="/admin" rightIcon={FaLock}>Admin</Button>
           <Button.Secondary m="0.5em" disabled>不可點</Button.Secondary>
         </Box>
       </Container>
