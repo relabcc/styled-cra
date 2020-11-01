@@ -5,8 +5,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import creatStore from './stores/createStore';
+
 import ThemeProvider from './components/ThemeProvider'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
+import HeaderProvider from './contexts/header/Provider'
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -17,7 +19,9 @@ ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider>
       <MediaProvider>
-        <App />
+        <HeaderProvider>
+          <App />
+        </HeaderProvider>
       </MediaProvider>
     </ThemeProvider>
   </Provider>

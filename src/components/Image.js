@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, forwardRef } from 'react'
 import isArray from 'lodash/isArray'
 import last from 'lodash/last'
 import { Image } from "@chakra-ui/core";
@@ -15,7 +15,7 @@ const mimeTypes = {
 
 const base64Mime = /data:(\w+\/\w+);base64/
 
-const ReImage = ({ src, alt, ...props }) => {
+const ReImage = forwardRef(({ src, alt, ...props }, ref) => {
   const pic = useMemo(() => {
     if (!isArray(src)) return null
     const sources = src.map((srcset) => {
@@ -33,15 +33,15 @@ const ReImage = ({ src, alt, ...props }) => {
   }, [src])
   if (isArray(src)) {
     return (
-      <Image as="picture" {...props}>
+      <Image as="picture"{...props}  ref={ref}>
         {pic.sources.map((s, i) => <source key={i} {...s} />)}
         <img src={pic.fallback} alt={alt} />
       </Image>
     )
   }
 
-  return <Image src={src} alt={alt} {...props} />
-}
+  return <Image src={src} alt={alt} {...props} ref={ref} />
+})
 
 ReImage.defaultProps = {
   width: '100%',
