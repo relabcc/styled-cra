@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from "@chakra-ui/core";
 
-import Link from './Link'
+import Link from '../i18n/Link'
 
-const ReButton = ({ href, ...props }) => {
-  if (href) return <Button as={p => <Link {...p} href={href} />} {...props} />
+const ReButton = ({ href, to, ...props }) => {
+  if (href || to) return <Button as={p => <Link {...p} to={to} href={href} />} {...props} />
   return <Button {...props} />
 }
 
