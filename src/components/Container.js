@@ -1,9 +1,9 @@
-import React from 'react';
+import styled from '@emotion/styled';
 
 import Box from './Box';
 import { containerWidth, responsive } from './ThemeProvider/theme';
 
-const Container = (props) => <Box {...props} />;
+const Container = styled(Box)``
 
 Container.defaultProps = {
   mx: 'auto',

@@ -1,3 +1,4 @@
 import { Link } from "@chakra-ui/core";
+import styled from '@emotion/styled'
 
-export default Link
+export default styled(Link)``

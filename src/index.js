@@ -2,8 +2,10 @@ import 'react-app-polyfill/ie11'
 import 'react-app-polyfill/stable'
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import ThemeProvider from './components/ThemeProvider'
 import MediaProvider from './contexts/mediaQuery/MediaProvider'
+import HeaderProvider from './contexts/header/Provider'
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -11,7 +13,9 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <ThemeProvider>
     <MediaProvider>
-      <App />
+      <HeaderProvider>
+        <App />
+      </HeaderProvider>
     </MediaProvider>
   </ThemeProvider>
 , document.getElementById('root'));

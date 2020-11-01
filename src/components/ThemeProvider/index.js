@@ -6,7 +6,7 @@ import globalStyles from './global-styles';
 
 import theme from './theme';
 
-export default ({ children }) => (
+const ReThemeProvider = ({ children }) => (
   <ThemeProvider theme={theme}>
     <Fragment>
       <CSSReset />
@@ -15,3 +15,5 @@ export default ({ children }) => (
     </Fragment>
   </ThemeProvider>
 );
+
+export default ReThemeProvider
