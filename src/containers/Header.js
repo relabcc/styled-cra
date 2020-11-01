@@ -1,7 +1,8 @@
 import React from 'react'
+import { Heading } from "@chakra-ui/core";
+
 import Box from '../components/Box';
 import Flex from '../components/Flex';
-import Text from '../components/Text';
 
 import Language from './Language'
 
@@ -13,14 +14,14 @@ const Header = ({ siteTitle, ...props }) => (
     left={0}
     right={0}
     alignItems="center"
-    zOrder={2}
+    zIndex="docked"
     px="1em"
     {...props}
   >
     <Box flex={1}>
-      <Text.H1 color="white">
+      <Heading as="h1" color="white">
         {siteTitle}
-      </Text.H1>
+      </Heading>
     </Box>
     <Language />
   </Flex>

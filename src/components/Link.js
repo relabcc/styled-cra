@@ -1,59 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
-import {
-  fontSize,
-  fontWeight,
-  lineHeight,
-  space,
-  color,
-  letterSpacing,
-  display,
-} from 'styled-system';
+import React, { forwardRef } from 'react';
+import { Link as UiLink } from "@chakra-ui/core";
 import { Link as RouterLink } from 'react-router-dom'
-import shouldForwardProp from '@styled-system/should-forward-prop'
+import styled from '@emotion/styled'
 
-import { customColor } from './utils/getColor';
-
-const NomalLink = styled.a.withConfig({ shouldForwardProp })`
-  ${fontSize}
-  ${space}
-  ${color}
-  ${fontWeight}
-  ${lineHeight}
-  ${letterSpacing}
-  ${display}
-  text-decoration: none;
-  ${({ disabled }) => disabled && `
-    pointer-events: none;
-  `}
-  &:hover {
-    ${customColor('hoverColor')};
-  }
-`;
-
-const Link = ({ button, to, ...props }) => {
+const Link = forwardRef(({ button, to, ...props }, ref) => {
   if (to) {
     return (
-      <NomalLink
+      <UiLink
         as={RouterLink}
         to={to}
-        { ...props }
+        {...props}
+        ref={ref}
       />
     )
   }
   return (
-    <NomalLink
+    <UiLink
       target="_blank"
-      { ...props }
+      {...props}
+      ref={ref}
     />
   );
-};
-
+});
 
 Link.displayName = 'Link';
 
-Link.defaultProps = {
-  fontWeight: 'bold',
-};
-
-export default Link;
+export default styled(Link)``

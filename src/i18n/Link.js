@@ -1,20 +1,17 @@
-import React, { PureComponent } from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 
 import Link from '../components/Link'
 import LanguageContext from './LanguageContext';
 
-class I18nLink extends PureComponent {
-  render() {
-    const { to, children, ...rest } = this.props;
-    const { locale } = this.context;
-      const toWithLang = locale ? `/${locale}${to}` : `${to}`
-    return (
-      <Link to={toWithLang} {...rest}>
-        {children}
-      </Link>
-    )
-  }
+const I18nLink = ({ to, children, ...rest }) => {
+  const { locale } = useContext(LanguageContext);
+  const toWithLang = locale ? `/${locale}${to}` : `${to}`
+  return (
+    <Link to={toWithLang} {...rest}>
+      {children}
+    </Link>
+  )
 }
 
 I18nLink.propTypes = {

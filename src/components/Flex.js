@@ -1,18 +1,9 @@
-import { flexbox } from 'styled-system';
-import styled from 'styled-components';
+import React, { forwardRef } from 'react'
+import { Flex } from "@chakra-ui/core";
+import styled from '@emotion/styled'
 
-import Box from './Box';
+const ReFlex = styled(Flex)``
 
-import asForward from './utils/asForward'
+ReFlex.Vertical = forwardRef((props, ref) => <Flex direction="column" {...props} ref={ref} />)
 
-const Flex = styled(Box)`
-  ${flexbox}
-`;
-
-Flex.defaultProps = {
-  display: 'flex',
-};
-
-Flex.displayName = 'Flex';
-
-export default asForward(Flex);
+export default ReFlex

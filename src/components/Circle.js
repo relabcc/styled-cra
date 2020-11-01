@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from './Box';
 
-const Circle = ({ children, border, borderColor, bg, as, ...props }) => (
-  <Box {...props}>
+const Circle = forwardRef(({ children, border, borderColor, bg, as, ...props }, ref) => (
+  <Box {...props} ref={ref}>
     <Box position="relative" pt="100%">
       <Box
         position="absolute"
@@ -12,7 +12,7 @@ const Circle = ({ children, border, borderColor, bg, as, ...props }) => (
         left="0"
         right="0"
         bottom="0"
-        width={1}
+        width="100%"
         borderRadius="50%"
         border={border}
         borderColor={borderColor}
@@ -31,7 +31,7 @@ const Circle = ({ children, border, borderColor, bg, as, ...props }) => (
       </Box>
     </Box>
   </Box>
-);
+));
 
 Circle.propTypes = {
   children: PropTypes.node,
