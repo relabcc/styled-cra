@@ -7,9 +7,9 @@ import Link from '../../components/Link';
 
 const AdminPage = () => (
   <Container>
-    <Text.h1>
+    <Text.H1>
       Admin Page
-    </Text.h1>
+    </Text.H1>
     <Box my="1em">
       <Link to="/admin/logout/">
         Logout
