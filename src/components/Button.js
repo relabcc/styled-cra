@@ -1,9 +1,12 @@
 import React from 'react';
 import { Button } from "@chakra-ui/core";
-import styled from '@emotion/styled'
 
-const ReButton = styled(Button)`
-`;
+import Link from './Link'
+
+const ReButton = ({ href, ...props }) => {
+  if (href) return <Button as={p => <Link {...p} href={href} />} {...props} />
+  return <Button {...props} />
+}
 
 ReButton.defaultProps = {
   variantColor: 'blue'
