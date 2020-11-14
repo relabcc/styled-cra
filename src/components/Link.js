@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Link as UiLink } from "@chakra-ui/core";
+import { Link as UiLink } from "@chakra-ui/react";
 import { Link as RouterLink } from 'react-router-dom'
 import styled from '@emotion/styled'
 
