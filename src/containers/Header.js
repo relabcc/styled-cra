@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading } from "@chakra-ui/core";
+import { Heading } from "@chakra-ui/react";
 
 import Box from '../components/Box';
 import Flex from '../components/Flex';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from "@chakra-ui/core";
+import { Button } from "@chakra-ui/react";
 
 import Link from './Link'
 
@@ -9,15 +9,15 @@ const ReButton = ({ href, to, ...props }) => {
 }
 
 ReButton.defaultProps = {
-  variantColor: 'blue'
+  colorScheme: 'blue'
 }
 
 ReButton.Secondary = props => (
-  <ReButton variantColor="green" {...props} />
+  <ReButton colorScheme="green" {...props} />
 )
 
 ReButton.Danger = props => (
-  <ReButton variantColor="red" {...props} />
+  <ReButton colorScheme="red" {...props} />
 )
 
 export default ReButton
