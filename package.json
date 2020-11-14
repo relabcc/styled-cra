@@ -12,7 +12,6 @@
     "bowser": "^2.11.0",
     "browser-lang": "^0.1.0",
     "emotion-theming": "^11.0.0",
-    "libreact": "^2.13.3",
     "framer-motion": "^2.9.4",
     "lodash": "^4.17.20",
     "prop-types": "^15.7.2",
