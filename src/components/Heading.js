@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Heading } from '@chakra-ui/core'
+import { Heading } from '@chakra-ui/react'
 import range from 'lodash/range'
 import styled from '@emotion/styled'
 

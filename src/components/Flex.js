@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Flex } from "@chakra-ui/core";
+import { Flex } from "@chakra-ui/react";
 import styled from '@emotion/styled'
 
 const ReFlex = styled(Flex)``
