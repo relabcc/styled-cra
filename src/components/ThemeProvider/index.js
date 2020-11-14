@@ -1,19 +1,18 @@
-import React, { Fragment } from 'react';
-import { ThemeProvider, CSSReset } from '@chakra-ui/core'
-import { Global } from '@emotion/core'
+import React from 'react';
+import { Global } from '@emotion/react'
+import { ChakraProvider } from "@chakra-ui/react"
 
 import globalStyles from './global-styles';
 
 import theme from './theme';
 
 const ReThemeProvider = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <Fragment>
-      <CSSReset />
+  <ChakraProvider theme={theme}>
+    <>
       <Global styles={globalStyles} />
       {children}
-    </Fragment>
-  </ThemeProvider>
+    </>
+  </ChakraProvider>
 );
 
 export default ReThemeProvider

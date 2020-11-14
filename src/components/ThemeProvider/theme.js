@@ -1,10 +1,17 @@
-import { theme } from "@chakra-ui/core";
+import { theme, extendTheme } from "@chakra-ui/react";
+import { createBreakpoints } from "@chakra-ui/theme-tools"
 
 import get from 'lodash/get';
 
 import memorize from '../../utils/memorize'
 
-export const breakpoints = ["30em", "48em", "62em", "80em"];
+export const breakpoints = createBreakpoints({
+  sm: "30em",
+  md: "48em",
+  lg: "62em",
+  xl: "80em",
+})
+
 export const containerWidth = ["26em", "44em", "58em", "76em"];
 export const responsiveIndex = [
   [2, 'mobile'],
@@ -12,7 +19,7 @@ export const responsiveIndex = [
 ]
 
 const responsiveMap = breakpoints.map((_, i) => {
-  const id = responsiveIndex.findIndex(([ri]) => ri > i)
+  const id = responsiveIndex.findIndex(([ri]) => ri + 1 > i)
   return id >= 0 ? id : responsiveIndex.length
 })
 
@@ -35,8 +42,7 @@ const primary = 'blue'
 const secondary = 'green'
 const danger = 'red'
 
-export default {
-  ...theme,
+const overrides = {
   fonts,
   colors: {
     ...theme.colors,
@@ -48,4 +54,8 @@ export default {
   breakpoints,
   containerWidth,
   headerHeight: '6em',
-};
+}
+
+const customTheme = extendTheme(overrides)
+
+export default customTheme

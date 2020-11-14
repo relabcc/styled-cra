@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useContext } from 'react';
 import sizeMe from 'react-sizeme'
-import { withWindowSize } from 'libreact/modules/WindowSizeSensor';
+import { useWindowSize } from 'react-use'
 
 import Box from './Box'
 import theme from './ThemeProvider/theme'
@@ -9,7 +9,8 @@ import useResponsive from '../contexts/mediaQuery/useResponsive'
 
 const HeightAware = sizeMe({ monitorHeight: true, monitorWidth: false })(Box)
 
-const Fullpage = ({ children, windowSize, ...props }) => {
+const Fullpage = ({ children, ...props }) => {
+  const windowSize = useWindowSize()
   const [dims, setDims] = useState({})
   const { hideHeader } = useContext(headerContext)
   const { getCurrentValue } = useResponsive()
@@ -30,4 +31,4 @@ const Fullpage = ({ children, windowSize, ...props }) => {
   ), [canFull, hideHeader, headerHeight, children, props]);
 };
 
-export default withWindowSize(Fullpage);
+export default Fullpage;
