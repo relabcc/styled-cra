@@ -1,38 +1,37 @@
-import React, { forwardRef, useMemo } from 'react';
-import styled from '@emotion/styled';
-import { get, isArray } from 'lodash'
+import React, { forwardRef } from 'react';
+import { isArray } from 'lodash'
+import { AspectRatio } from '@chakra-ui/react';
 
 import Box from './Box'
+import useWebpImage from './utils/useWebpImage';
 
-const BackgroundImg = styled(Box)`
-  ${(props) => props.height ? '' : `padding-top: ${props.ratio * 100}%;`}
-  background-repeat: no-repeat;
-`;
+const BGImage = ({ src, children, ...props }) => {
+  const pic = useWebpImage(src)
 
-const BackgroundImage = forwardRef(({ src, ...props }, ref) => {
-  const canUseWebp = get(window, 'Modernizr.webp')
+  return (
+    <Box
+      backgroundImage={`url(${isArray(src) ? pic : src})`}
+      {...props}
+    >
+      {children && (
+        <Box.FullAbs>{children}</Box.FullAbs>
+      )}
+    </Box>
+  )
+}
 
-  const pic = useMemo(() => {
-    if (!isArray(src)) return null
-    return canUseWebp ? src[0] : src[1];
-  }, [canUseWebp, src])
-
-  return <BackgroundImg src={isArray(src) ? pic : src} {...props} ref={ref} />
-})
-
-BackgroundImage.defaultProps = {
-  position: 'relative',
-  ratio: 1,
+BGImage.defaultProps = {
   backgroundSize: 'cover',
   backgroundPosition: '50% 50%',
+  backgroundRepet: 'no-repeat',
 };
+
+const BackgroundImage = forwardRef(({ src, children, ...props }, ref) => (
+  <AspectRatio {...props} ref={ref}>
+    <BGImage src={src}>{children}</BGImage>
+  </AspectRatio>
+));
 
 BackgroundImage.displayName = 'BackgroundImage';
 
-const ReBackgroundImage = forwardRef(({ src, children, ...props }, ref) => (
-  <BackgroundImage backgroundImage={`url(${src})`} {...props} ref={ref}>
-    <Box.FullAbs>{children}</Box.FullAbs>
-  </BackgroundImage>
-));
-
-export default ReBackgroundImage
+export default BackgroundImage
