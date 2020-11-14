@@ -1,7 +1,7 @@
 import React, { useMemo, forwardRef } from 'react'
 import isArray from 'lodash/isArray'
 import last from 'lodash/last'
-import { Image } from "@chakra-ui/core";
+import { Image } from "@chakra-ui/react";
 
 const mimeTypes = {
   gif: 'image/gif',
