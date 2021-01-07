@@ -20,4 +20,4 @@ range(1, 7).forEach((key) => {
   ));
 });
 
-export default Text
+export default ReText

@@ -26,9 +26,19 @@ BGImage.defaultProps = {
   backgroundRepet: 'no-repeat',
 };
 
-const BackgroundImage = forwardRef(({ src, children, ...props }, ref) => (
+const BackgroundImage = forwardRef(({
+  src,
+  children,
+  backgroundSize,
+  backgroundPosition,
+  ...props
+}, ref) => (
   <AspectRatio {...props} ref={ref}>
-    <BGImage src={src}>{children}</BGImage>
+    <BGImage
+      src={src}
+      backgroundSize={backgroundSize}
+      backgroundPosition={backgroundPosition}
+    >{children}</BGImage>
   </AspectRatio>
 ));
 
