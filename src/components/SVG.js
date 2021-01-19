@@ -22,7 +22,7 @@ const SVG = ({
   contentRect: { bounds: { width } },
   ...props
 }) => {
-  const ratio = useMemo(() =>  parseViewbox(viewBox), [])
+  const ratio = useMemo(() => parseViewbox(viewBox), [])
   useEffect(() => {
     measure()
   }, [])

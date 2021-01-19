@@ -7,7 +7,7 @@ import globalStyles from './global-styles';
 import theme from './theme';
 
 const ReThemeProvider = ({ children }) => (
-  <ChakraProvider theme={theme}>
+  <ChakraProvider theme={theme} resetCSS>
     <>
       <Global styles={globalStyles} />
       {children}
