@@ -9,7 +9,7 @@ const ReButton = ({ href, to, ...props }) => {
 }
 
 ReButton.defaultProps = {
-  colorScheme: 'blue'
+  colorScheme: 'blue',
 }
 
 ReButton.Secondary = props => (

@@ -47,6 +47,6 @@ ReImage.defaultProps = {
   width: '100%',
 };
 
-ReImage.displayName = 'ReImage';
+ReImage.displayName = 'Image';
 
 export default ReImage;

@@ -1,10 +1,10 @@
 import React from 'react'
 import { FaThumbsUp, FaLock } from 'react-icons/fa';
+import { Circle } from '@chakra-ui/react';
 
 import Container from '../components/Container'
 import Box from '../components/Box'
 import Flex from '../components/Flex'
-import Circle from '../components/Circle'
 import Text from '../components/Text'
 import BackgroundImage from '../components/BackgroundImage'
 import Button from '../components/Button'
@@ -24,12 +24,12 @@ const HomePage = () => {
           <Text color={isMobile ? 'danger' : 'black'} fontSize={responsive('1em', '1.5em')}>
           Styled Components + Styled System 超方便
           </Text>
-          <Circle width="2em" bg="primary" color="white" display="inline-block" mx="1em" verticalAlign="middle">
+          <Circle size="2em" bg="primary" color="white" mx="1em">
             <FaThumbsUp />
           </Circle>
         </Flex>
         <Counter />
-        <BackgroundImage my="2em" src="https://loremflickr.com/1920/1080" ratio={9 / 16} />
+        <BackgroundImage my="2em" src="https://loremflickr.com/1920/1080" ratio={16 / 9} />
         <Box mx="-1em">
           <Button m="0.5em" to="/admin" rightIcon={FaLock}>Admin</Button>
           <Button.Secondary m="0.5em" disabled>不可點</Button.Secondary>
