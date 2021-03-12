@@ -6,7 +6,7 @@ import MediaContext from './mediaContext'
 import getResponsiveHelper from './getResponsiveHelper'
 import { responsive } from '../../components/ThemeProvider/theme';
 
-export default () => {
+const useResponsive = () => {
   const q = useContext(MediaContext)
   return {
     ...getResponsiveHelper(q),
@@ -24,3 +24,5 @@ export default () => {
     }, [q]),
   }
 }
+
+export default useResponsive
