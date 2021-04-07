@@ -1,8 +1,17 @@
 import { theme, extendTheme } from "@chakra-ui/react";
+import { createBreakpoints } from "@chakra-ui/theme-tools"
 import memoizeOne from 'memoize-one';
 import get from 'lodash/get';
 
-export const breakpoints = [30, 48, 62, 80].map(em => em * 16);
+const chakraBp = createBreakpoints({
+  sm: "30em",
+  md: "48em",
+  lg: "60em",
+  xl: "80em",
+  "2xl": "96em",
+})
+
+export const breakpoints = Object.values(chakraBp).slice(1)
 
 export const responsiveIndex = [
   [1, 'mobile'],
@@ -12,7 +21,7 @@ export const responsiveIndex = [
 ]
 
 const responsiveMap = breakpoints.map((_, i) => {
-  const id = responsiveIndex.findIndex(([ri]) => ri + 1 > i)
+  const id = responsiveIndex.findIndex(([ri]) => ri > i)
   return id >= 0 ? id : responsiveIndex.length
 })
 
@@ -24,7 +33,7 @@ export const responsive = memoizeOne((...args) => {
 
 export const mobileOrDesktop = responsive
 
-export const containerWidth = ["26em", "44em", "58em", "76em"];
+export const containerWidth = [null, "48em", "60em", "80em"];
 export const containerPadding = responsive('1em', '2em')
 
 const font = 'Arial, "PingFang TC", "HeiTi TC", "Microsoft JhengHei", sans-serif';
