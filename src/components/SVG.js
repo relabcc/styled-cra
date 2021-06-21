@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { withContentRect } from 'react-measure'
+import { useMeasure } from 'react-use'
 
 import isIE from './utils/isIE'
 import Box from './Box';
@@ -17,15 +17,11 @@ const parseViewbox = (vb) => {
 const SVG = ({
   viewBox,
   children,
-  measure,
-  measureRef,
-  contentRect: { bounds: { width } },
   ...props
 }) => {
+  const [measureRef, { width }] = useMeasure()
   const ratio = useMemo(() => parseViewbox(viewBox), [])
-  useEffect(() => {
-    measure()
-  }, [])
+
   return isIE ? (
     <Box is="span" ref={measureRef} {...props}>
       <Box
@@ -63,4 +59,4 @@ SVG.defaultProps = {
 
 SVG.displayName = 'SVG';
 
-export default withContentRect('bounds')(SVG);
+export default SVG;
