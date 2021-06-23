@@ -24,7 +24,6 @@ const Fullpage = ({ children, ...props }) => {
           width="100%"
           transform="translateY(-50%)"
         >
-
           {children}
         </Box>
       </Box>
