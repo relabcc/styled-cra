@@ -23,7 +23,7 @@ const BGImage = ({ src, children, ...props }) => {
 BGImage.defaultProps = {
   backgroundSize: 'cover',
   backgroundPosition: '50% 50%',
-  backgroundRepet: 'no-repeat',
+  backgroundRepeat: 'no-repeat',
 };
 
 const BackgroundImage = forwardRef(({
