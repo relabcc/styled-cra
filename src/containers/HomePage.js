@@ -34,7 +34,7 @@ const HomePage = () => {
           <Counter />
           <BackgroundImage my="2em" src="https://loremflickr.com/1920/1080" ratio={16 / 9} />
           <Box mx="-1em">
-            <Button m="0.5em" rightIcon={FaHandPeace}>範例Button</Button>
+            <Button m="0.5em" rightIcon={<FaHandPeace />}>範例Button</Button>
             <Button.Secondary m="0.5em" isDisabled>不可點</Button.Secondary>
           </Box>
         </Container>
