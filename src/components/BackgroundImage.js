@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import { isArray } from 'lodash'
-import { AspectRatio } from '@chakra-ui/react';
+import { AspectRatio, useMergeRefs } from '@chakra-ui/react';
+import { useInView } from 'react-intersection-observer';
 
 import Box from './Box'
 import useWebpImage from './utils/useWebpImage';
@@ -24,6 +25,7 @@ BGImage.defaultProps = {
   backgroundSize: 'cover',
   backgroundPosition: '50% 50%',
   backgroundRepeat: 'no-repeat',
+  backgroundColor: 'gray.100',
 };
 
 const BackgroundImage = forwardRef(({
@@ -31,16 +33,22 @@ const BackgroundImage = forwardRef(({
   children,
   backgroundSize,
   backgroundPosition,
+  backgroundColor,
   ...props
-}, ref) => (
-  <AspectRatio {...props} ref={ref}>
-    <BGImage
-      src={src}
-      backgroundSize={backgroundSize}
-      backgroundPosition={backgroundPosition}
-    >{children}</BGImage>
-  </AspectRatio>
-));
+}, outerRef) => {
+  const { ref, inView } = useInView();
+
+  return (
+    <AspectRatio {...props} ref={useMergeRefs(ref, outerRef)}>
+      <BGImage
+        src={inView && src}
+        backgroundColor={backgroundColor}
+        backgroundSize={backgroundSize}
+        backgroundPosition={backgroundPosition}
+      >{children}</BGImage>
+    </AspectRatio>
+  )
+});
 
 BackgroundImage.displayName = 'BackgroundImage';
 
