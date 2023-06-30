@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '@chakra-ui/react';
+import { Outlet } from 'react-router-dom';
 
 import theme from '../components/ThemeProvider/theme';
 import headerContext from '../contexts/header/context';
 
 import Header from './Header';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const { hideHeader } = useContext(headerContext);
   return (
     <>
@@ -18,7 +19,7 @@ const Layout = ({ children }) => {
         />
       )}
       <Box as="main" minHeight="100vh" pt={!hideHeader && theme.headerHeight}>
-        {children}
+        <Outlet />
       </Box>
     </>
   );

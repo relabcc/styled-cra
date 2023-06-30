@@ -2,6 +2,7 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import React from 'react';
 import { hydrate, render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import ThemeProvider from './components/ThemeProvider';
 import HeaderProvider from './contexts/header/Provider';
@@ -11,11 +12,13 @@ import App from './App';
 
 const app = (
   <React.StrictMode>
-    <ThemeProvider>
-      <HeaderProvider>
-        <App />
-      </HeaderProvider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <HeaderProvider>
+          <App />
+        </HeaderProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
