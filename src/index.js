@@ -1,28 +1,32 @@
-import 'react-app-polyfill/ie11'
-import 'react-app-polyfill/stable'
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { hydrate, render } from 'react-dom';
 
-import ThemeProvider from './components/ThemeProvider'
-import MediaProvider from './contexts/mediaQuery/MediaProvider'
-import HeaderProvider from './contexts/header/Provider'
+import ThemeProvider from './components/ThemeProvider';
+import HeaderProvider from './contexts/header/Provider';
 
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+const app = (
   <React.StrictMode>
     <ThemeProvider>
-      <MediaProvider>
-        <HeaderProvider>
-          <App />
-        </HeaderProvider>
-      </MediaProvider>
+      <HeaderProvider>
+        <App />
+      </HeaderProvider>
     </ThemeProvider>
   </React.StrictMode>
-, document.getElementById('root'));
+);
+
+const rootElement = document.getElementById('root');
+if (rootElement.hasChildNodes()) {
+  hydrate(app, rootElement);
+} else {
+  render(app, rootElement);
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(console.log);
+// reportWebVitals(console.log);

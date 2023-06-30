@@ -1,4 +1,4 @@
-import { Link } from "@chakra-ui/react";
-import styled from '@emotion/styled'
+import { Link } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 
-export default styled(Link)``
+export default styled(Link)``;

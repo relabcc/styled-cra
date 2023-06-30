@@ -1,42 +1,45 @@
-import React from 'react'
+import React from 'react';
 import { FaThumbsUp, FaHandPeace } from 'react-icons/fa';
-import { Circle } from '@chakra-ui/react';
+import { Box, Circle, Container, Flex, Text } from '@chakra-ui/react';
 
-import Container from '../components/Container'
-import Box from '../components/Box'
-import Flex from '../components/Flex'
-import Text from '../components/Text'
-import BackgroundImage from '../components/BackgroundImage'
-import Button from '../components/Button'
-import FullpageVerticalCenter from '../components/FullpageVerticalCenter'
-import { responsive } from '../components/ThemeProvider/theme';
+import BackgroundImage from 'components/BackgroundImage';
+import Button from 'components/Button';
 
-import useResponsive from '../contexts/mediaQuery/useResponsive'
-
-import Layout from './Layout'
+import Layout from './Layout';
 
 const HomePage = () => {
-  const { isMobile } = useResponsive()
   return (
     <Layout>
-      <Container py={responsive(0, '2em')}>
+      <Container py={{ base: 4, md: 8 }} maxW="container.lg">
         <Flex alignItems="center">
-          <Text color={isMobile ? 'danger' : 'black'} fontSize={responsive('1em', '1.5em')}>
-            Re-lab UI Starter, Based On Chakra Ui
+          <Text fontSize={{ base: '1em', md: '1.5em' }}>
+            RE:LAB UI Starter, Based On Chakra Ui
           </Text>
           <Circle size="2em" bg="primary" color="white" mx="1em">
             <FaThumbsUp />
           </Circle>
         </Flex>
-        <BackgroundImage my="2em" src="https://loremflickr.com/1920/1080?random=1" ratio={16 / 9} />
-        <Box mx="-1em">
-          <Button m="0.5em" rightIcon={<FaHandPeace />}>範例Button</Button>
-          <Button.Secondary m="0.5em" isDisabled>不可點</Button.Secondary>
+        <BackgroundImage
+          my="2em"
+          src="https://loremflickr.com/1920/1080?random=1"
+          ratio={16 / 9}
+        />
+        <Box>
+          <Button m="0.5em" rightIcon={<FaHandPeace />}>
+            範例Button
+          </Button>
+          <Button.Secondary m="0.5em" isDisabled>
+            不可點
+          </Button.Secondary>
         </Box>
-        <BackgroundImage my="2em" src="https://loremflickr.com/1920/1080?random=2" ratio={16 / 9} />
+        <BackgroundImage
+          my="2em"
+          src="https://loremflickr.com/1920/1080?random=2"
+          ratio={16 / 9}
+        />
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

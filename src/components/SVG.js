@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useMeasure } from 'react-use'
+import { Box } from '@chakra-ui/react';
 
 import isIE from './utils/isIE'
-import Box from './Box';
 
 const parseViewbox = (vb) => {
   try {

@@ -1,8 +1,5 @@
-import React from 'react'
-import { Heading } from "@chakra-ui/react";
-
-import Box from '../components/Box';
-import Flex from '../components/Flex';
+import React from 'react';
+import { Heading, Box, Flex } from '@chakra-ui/react';
 
 const Header = ({ siteTitle, ...props }) => (
   <Flex
@@ -13,6 +10,7 @@ const Header = ({ siteTitle, ...props }) => (
     right={0}
     alignItems="center"
     zIndex="docked"
+    as="header"
     {...props}
   >
     <Box px="1em" flex={1}>
@@ -21,6 +19,6 @@ const Header = ({ siteTitle, ...props }) => (
       </Heading>
     </Box>
   </Flex>
-)
+);
 
-export default Header
+export default Header;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Global } from '@emotion/react'
-import { ChakraProvider } from "@chakra-ui/react"
+import { Global } from '@emotion/react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 import globalStyles from './global-styles';
 
@@ -15,4 +15,4 @@ const ReThemeProvider = ({ children }) => (
   </ChakraProvider>
 );
 
-export default ReThemeProvider
+export default ReThemeProvider;
